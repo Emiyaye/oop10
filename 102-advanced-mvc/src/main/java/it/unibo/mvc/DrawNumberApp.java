@@ -45,13 +45,13 @@ public final class DrawNumberApp implements DrawNumberViewObserver {
                     setbuilder(temp, st.nextToken(), builder);
                 }
             }
-        } catch (IOException e) {
+        } catch (final IOException e) {
             e.printStackTrace();
         }
         this.model = new DrawNumberImpl(builder.build());
     }
 
-    private static void setbuilder(final String command, final String value, Builder b) {
+    private static void setbuilder(final String command, final String value, final Builder b) {
         if (command.equals("minimum:")) {
             b.setMin(Integer.parseInt(value));
         } else if (command.equals("maximum:")) {
@@ -68,7 +68,7 @@ public final class DrawNumberApp implements DrawNumberViewObserver {
             for (final DrawNumberView view : views) {
                 view.result(result);
             }
-        } catch (IllegalArgumentException e) {
+        } catch (final IllegalArgumentException e) {
             for (final DrawNumberView view : views) {
                 view.numberIncorrect();
             }
