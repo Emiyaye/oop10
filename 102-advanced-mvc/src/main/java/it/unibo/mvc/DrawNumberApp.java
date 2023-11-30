@@ -17,6 +17,7 @@ public final class DrawNumberApp implements DrawNumberViewObserver {
 
     private static final String SLASH = File.separator;
     private static final String PATH = "src" + SLASH + "main" + SLASH + "resources" + SLASH + "config.yml";
+    private static final String TEXT_PATH = "src" + SLASH + "main" + SLASH + "resources" + SLASH + "file_logger.txt";
 
     private final DrawNumber model;
     private final List<DrawNumberView> views;
@@ -97,7 +98,7 @@ public final class DrawNumberApp implements DrawNumberViewObserver {
      * @throws FileNotFoundException
      */
     public static void main(final String... args) throws FileNotFoundException {
-        new DrawNumberApp(new DrawNumberViewImpl());
+        new DrawNumberApp(new DrawNumberViewImpl(), new DrawNumberViewImpl(), new PrintStreamView(System.out), new PrintStreamView(TEXT_PATH));
     }
 
 }
